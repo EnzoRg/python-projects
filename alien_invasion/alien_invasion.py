@@ -8,7 +8,7 @@ import game_functions as gf
 
 def run_game():
     
-    pygame.init() # Inicia el juego y crea el objeto pantalla
+    pygame.init() # Inicia el juego y crea el objeto pantalla (prueba)
 
 
     ai_settings = Settings() 
