@@ -16,17 +16,18 @@ def run_game():
     pygame.display.set_caption("Alien Invasion - Enz0")
   
     ship = Ship(ai_settings, screen) # Se instancia una nave (objeto)
-
     bullets = Group() # Se instancia un objeto
-
     aliens = Group()
 
-    alien = Alien(ai_settings, screen)
+    gf.create_fleet(ai_settings, screen, ship, aliens)
+
+    alien = Alien(ai_settings, screen) 
     
     while True: # Inicia el loop principal del juego
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
-        gf.update_bullets(bullets)
-        gf.update_screen(ai_settings, screen, ship, alien, bullets)
+        gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
+        gf.update_aliens(ai_settings, ship, aliens)
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
             
 run_game()
