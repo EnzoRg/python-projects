@@ -1,4 +1,4 @@
-# Python Projects 
+# Python Projects 🐍🕹
 ---
 In this repository, I will upload mostly games using Pygame. 
 
