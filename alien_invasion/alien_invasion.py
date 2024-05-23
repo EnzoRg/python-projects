@@ -13,7 +13,7 @@ def run_game():
 
     ai_settings = Settings() 
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height)) # Crea un objeto
-    pygame.display.set_caption("Alien Invasion - Enz0")
+    pygame.display.set_caption("Alien Invasion - EnzoRg")
   
     ship = Ship(ai_settings, screen) # Se instancia una nave (objeto)
     bullets = Group() # Se instancia un objeto

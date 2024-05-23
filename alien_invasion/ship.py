@@ -6,7 +6,7 @@ class Ship():
         self.screen = screen 
         self.ai_settings = ai_settings
 
-        self.image = pygame.image.load('/home/blackmesa/Documentos/Python/alien_invasion/images/ship.bmp') # Carga la imagen
+        self.image = pygame.image.load('alien_invasion/images/ship.bmp') # Carga la imagen
         self.rect = self.image.get_rect() # Crea un rectangulo que representa una nave
         self.screen_rect = screen.get_rect() # Obtiene el rectangulo que representa la pantalla del juego y lo almacena en el atributo
 

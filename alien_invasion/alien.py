@@ -7,7 +7,7 @@ class Alien(Sprite):
         self.screen = screen
         self.ai_settings = ai_settings
 
-        self.image = pygame.image.load('/home/blackmesa/Documentos/Python/alien_invasion/images/alien.bmp') # Carga la imagen
+        self.image = pygame.image.load('alien_invasion/images/alien.bmp') # Carga la imagen
         self.rect = self.image.get_rect()
 
         self.rect.x = self.rect.width
