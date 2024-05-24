@@ -1,33 +1,99 @@
-import pygame # Leer: https://www.pygame.org/docs/
-from pygame.sprite import Group
+import sys
+import pygame 
+#from pygame.sprite import Group
 
 from settings import Settings 
 from ship import Ship
-from alien import Alien
-import game_functions as gf
+#from alien import Alien
+#import game_functions as gf
 
-def run_game():
+
+class AlienInvasion:
+    def __init__(self):
+        pygame.init()
+        self.clock = pygame.time.Clock()
+        self.settings = Settings()   
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height)) 
+         
+        ##Fullscreen mode: 
+        #self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        #self.settings.screen_width = self.screen.get_rect().width
+        #self.settings.screen_height = self.screen.get_rect().height
+        
+        pygame.display.set_caption("Alien Invasion - EnzoRg")
+
+        self.ship = Ship(self)
+        
+        
+
+    def run_game(self):
+        while True:
+            self._check_events()
+            self.ship.update()
+            self._update_screen()
+            self.clock.tick(60)
+
+    def _check_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()         
+            elif event.type == pygame.KEYDOWN:
+                self._check_keydown_events(event)
+            elif event.type == pygame.KEYUP:
+                self._check_keyup_events(event)
+                
+
+    def _check_keydown_events(self, event):
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = True
+        elif event.key == pygame.K_LEFT:
+             self.ship.moving_left = True   
+        elif event.key == pygame.K_q:
+            sys.exit()
+
+    def _check_keyup_events(self, event):
+        if event.key == pygame.K_RIGHT: 
+            self.ship.moving_right = False
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = False
+
+    def _update_screen(self):
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blittime()
+        pygame.display.flip()
+
+
+
+
+if __name__ == '__main__':
+    ai = AlienInvasion()
+    ai.run_game()
+
+
+#def run_game():
     
-    pygame.init() # Inicia el juego y crea el objeto pantalla (prueba)
+    #pygame.init() # Inicia el juego y crea el objeto pantalla (prueba)
 
 
-    ai_settings = Settings() 
-    screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height)) # Crea un objeto
-    pygame.display.set_caption("Alien Invasion - EnzoRg")
+    #ai_settings = Settings() 
+    #screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height)) # Crea un objeto
+    #pygame.display.set_caption("Alien Invasion - EnzoRg")
   
-    ship = Ship(ai_settings, screen) # Se instancia una nave (objeto)
-    bullets = Group() # Se instancia un objeto
-    aliens = Group()
+    #ship = Ship(ai_settings, screen) # Se instancia una nave (objeto)
+    #bullets = Group() # Se instancia un objeto
+    #aliens = Group()
 
-    gf.create_fleet(ai_settings, screen, ship, aliens)
+    #gf.create_fleet(ai_settings, screen, ship, aliens)
 
-    alien = Alien(ai_settings, screen) 
+    #alien = Alien(ai_settings, screen) 
     
-    while True: # Inicia el loop principal del juego
-        gf.check_events(ai_settings, screen, ship, bullets)
-        ship.update()
-        gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
-        gf.update_aliens(ai_settings, ship, aliens)
-        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
+    #while True: # Inicia el loop principal del juego
+        #gf.check_events(ai_settings, screen, ship, bullets)
+        #ship.update()
+        #gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
+        #gf.update_aliens(ai_settings, ship, aliens)
+        #gf.update_screen(ai_settings, screen, ship, aliens, bullets)
             
-run_game()
+#run_game()
+
+

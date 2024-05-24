@@ -6,7 +6,7 @@ class Settings(): # Por convencion se empieza con mayuscula
         self.screen_width = 800
         self.screen_height = 600
         self.bg_color = (68, 71, 90)
-        self.ship_speed_factor = 1
+        self.ship_speed = 1.5
 
         # Misiles de la nave
         self.bullet_speed_factor = 1.5
