@@ -8,4 +8,4 @@ For the second game, I was thinking about creating a game inspired by one I saw 
 
 ## [Alien Invasion](https://github.com/EnzoRg/python-projects/tree/main/alien_invasion)
 
-## Missile Command (I should change tha name)
+## Missile Command (I should change the name)
