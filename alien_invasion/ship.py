@@ -9,11 +9,9 @@ class Ship(Sprite):
         self.settings = ai_game.settings 
         self.screen_rect = ai_game.screen.get_rect()
         
-        self.image = pygame.image.load('images/ship_002.bmp')
+        self.image = pygame.image.load('alien_invasion/images/ship_002.bmp')
 
         self.rect = self.image.get_rect()   # Crea un rectangulo que representa una nave
-
-        
 
         self.rect.midbottom = self.screen_rect.midbottom
         self.x = float(self.rect.x)
